@@ -4,10 +4,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row">
-        <div class="col">
-            <h1>Hola</h1>
-            <h2>Bienvenido a la página de Pokedex</h2>
-        </div>
+    <h1>Hola</h1>
+    <h4>Bienvenido a la página de Pokedex</h4>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% 
+            foreach (dominio.Pokemon poke in ListaPokemons)
+            {
+        %>
+                <div class="col">
+                    <div class="card">
+                        <img src="<%:poke.UrlImagen %>" class="card-img-top" alt="imgPoke">
+                        <div class="card-body">
+                            <h5 class="card-title"><%:poke.Nombre %></h5>
+                            <p class="card-text"><%:poke.Descripcion %></p>
+                            <a href="DetallePokemon.aspx?Id=<%: poke.Id %>">Ver detalle</a>
+                        </div>
+                    </div>
+                </div>
+        <%   } %>
     </div>
 </asp:Content>

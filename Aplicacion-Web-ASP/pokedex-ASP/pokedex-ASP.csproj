@@ -69,6 +69,12 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="DetallePokemon.aspx" />
+    <Content Include="EjemplosDropDown\DDEnlazado.aspx" />
+    <Content Include="EjemplosDropDown\DDEstatico.aspx" />
+    <Content Include="EjemplosDropDown\ddlPreseleccionado.aspx" />
+    <Content Include="EjemplosDropDown\UpdatePanel.aspx" />
+    <Content Include="FormularioPokemon.aspx" />
+    <Content Include="imagenConUrl.aspx" />
     <Content Include="ListaPokemons.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -86,6 +92,48 @@
     </Compile>
     <Compile Include="DetallePokemon.aspx.designer.cs">
       <DependentUpon>DetallePokemon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosDropDown\DDEnlazado.aspx.cs">
+      <DependentUpon>DDEnlazado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosDropDown\DDEnlazado.aspx.designer.cs">
+      <DependentUpon>DDEnlazado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosDropDown\DDEstatico.aspx.cs">
+      <DependentUpon>DDEstatico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosDropDown\DDEstatico.aspx.designer.cs">
+      <DependentUpon>DDEstatico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosDropDown\ddlPreseleccionado.aspx.cs">
+      <DependentUpon>ddlPreseleccionado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosDropDown\ddlPreseleccionado.aspx.designer.cs">
+      <DependentUpon>ddlPreseleccionado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosDropDown\UpdatePanel.aspx.cs">
+      <DependentUpon>UpdatePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosDropDown\UpdatePanel.aspx.designer.cs">
+      <DependentUpon>UpdatePanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioPokemon.aspx.cs">
+      <DependentUpon>FormularioPokemon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioPokemon.aspx.designer.cs">
+      <DependentUpon>FormularioPokemon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="imagenConUrl.aspx.cs">
+      <DependentUpon>imagenConUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imagenConUrl.aspx.designer.cs">
+      <DependentUpon>imagenConUrl.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListaPokemons.aspx.cs">
       <DependentUpon>ListaPokemons.aspx</DependentUpon>

@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <div class="row">
         <div class="col-6">
@@ -19,10 +20,6 @@
                 <asp:TextBox ID="txtNumero" CssClass="form-control" runat="server" />
             </div>
             <div class="mb-3">
-                <label for="txtDescripcion" class="form-label">Descripción</label>
-                <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" CssClass="form-control" runat="server" />
-            </div>
-            <div class="mb-3">
                 <label for="ddlTipo" class="form-label">Tipo</label>
                 <asp:DropDownList ID="ddlTipo" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
@@ -31,9 +28,27 @@
                 <asp:DropDownList ID="ddlDebilidad" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
-                <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" runat="server" />
+                <asp:Button Text="Aceptar" ID="btnAceptar" OnClick="btnAceptar_Click" CssClass="btn btn-primary" runat="server" />
                 <a href="Default.aspx">Cancelar</a>
             </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtDescripcion" class="form-label">Descripción</label>
+                <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" CssClass="form-control" runat="server" />
+            </div>
+            <asp:UpdatePanel ID="updatePanel1" runat="server">
+                <ContentTemplate>
+                    <div class="mb-3">
+                        <label for="txtUrlImagen" class="form-label">URL Imagen</label>
+                        <asp:TextBox ID="txtImagenUrl" class="form-control" AutoPostBack="true"
+                            OnTextChanged="txtUrlImagen_TextChanged" runat="server" />
+                    </div>
+                    <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png" 
+                        Width="60%" ID="imgPokemon" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </div>
 

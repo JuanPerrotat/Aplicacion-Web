@@ -11,11 +11,14 @@ namespace pokedex_ASP
 {
     public partial class FormularioPokemon : System.Web.UI.Page
     {
+        public bool confirmaEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             txtID.Enabled = false;
+            confirmaEliminacion = false;
             try
             {
+                //Configuración inicial de la pantalla (Agregar)
                 if (!IsPostBack)
                 {
                     ElementoNegocio negocio = new ElementoNegocio();
@@ -28,6 +31,26 @@ namespace pokedex_ASP
                     ddlDebilidad.DataValueField = "Id";
                     ddlDebilidad.DataTextField = "Descripcion";
                     ddlDebilidad.DataBind();
+                }
+
+                //Configuración de modificar
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+                if (id != "" && !IsPostBack)
+                {
+                    PokemonNegocio negocio = new PokemonNegocio();
+                    //List<Pokemon> lista = negocio.listar(id); --> Primero guardas la lista
+                    //Pokemon seleccionado = lista[0]; --> Luego seleccionas el primer elemento
+                    Pokemon seleccionado = negocio.listar(id)[0]; //Haces lo mismo en una sola línea
+
+                    txtID.Text = id;
+                    txtNumero.Text = seleccionado.Numero.ToString();
+                    txtNombre.Text = seleccionado.Nombre;
+                    txtDescripcion.Text = seleccionado.Descripcion;
+                    txtImagenUrl.Text = seleccionado.UrlImagen;
+
+                    ddlTipo.SelectedValue = seleccionado.Tipo.Id.ToString();
+                    ddlDebilidad.SelectedValue = seleccionado.Debilidad.Id.ToString();
+                    txtUrlImagen_TextChanged(sender, e);
                 }
             }
             catch (Exception ex)
@@ -59,13 +82,43 @@ namespace pokedex_ASP
                 nuevo.Debilidad = new Elemento();
                 nuevo.Debilidad.Id = int.Parse(ddlDebilidad.SelectedValue);
 
-                negocio.agregarConSP(nuevo);
+                if (Request.QueryString["id"] != null)
+                {
+                    nuevo.Id = int.Parse(txtID.Text);
+                    negocio.modificarConSp(nuevo);
+                }
+                else
+                    negocio.agregarConSP(nuevo);
+
                 Response.Redirect("ListaPokemons.aspx", false);
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
                 throw;
+            }
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            confirmaEliminacion = true;
+        }
+
+        protected void btnConfirmaEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmaEliminacion.Checked)
+                {
+                    PokemonNegocio negocio = new PokemonNegocio();
+                    negocio.eliminar(int.Parse(txtID.Text));
+                    Response.Redirect("ListaPokemons.aspx", false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex);
             }
         }
     }

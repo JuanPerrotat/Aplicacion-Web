@@ -45,8 +45,28 @@
                         <asp:TextBox ID="txtImagenUrl" class="form-control" AutoPostBack="true"
                             OnTextChanged="txtUrlImagen_TextChanged" runat="server" />
                     </div>
-                    <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png" 
+                    <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png"
                         Width="60%" ID="imgPokemon" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <div class="mb-3">
+                        <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger" runat="server" />
+                    </div>
+                    <%if (confirmaEliminacion)
+                        { %>
+
+                    <div class="mb-3">
+                        <asp:CheckBox Text="Confirmar Eliminación" ID="chkConfirmaEliminacion" runat="server" />
+                        <asp:Button Text="Eliminar" OnClick="btnConfirmaEliminar_Click" ID="btnConfirmaEliminar" CssClass="btn btn-outline-danger" runat="server" />
+                    </div>
+
+                    <% } %>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

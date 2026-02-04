@@ -42,6 +42,10 @@ namespace pokedex_ASP
                     //Pokemon seleccionado = lista[0]; --> Luego seleccionas el primer elemento
                     Pokemon seleccionado = negocio.listar(id)[0]; //Haces lo mismo en una sola línea
 
+                    //Guardar Pokemon seleccionado en sesión
+                    Session.Add("pokeSeleccionado", seleccionado);
+
+                    //Precarga de campos
                     txtID.Text = id;
                     txtNumero.Text = seleccionado.Numero.ToString();
                     txtNombre.Text = seleccionado.Nombre;
@@ -51,6 +55,10 @@ namespace pokedex_ASP
                     ddlTipo.SelectedValue = seleccionado.Tipo.Id.ToString();
                     ddlDebilidad.SelectedValue = seleccionado.Debilidad.Id.ToString();
                     txtUrlImagen_TextChanged(sender, e);
+
+                    //Configurar acciones
+                    if (!seleccionado.Activo)
+                        btnInactivar.Text = "Reactivar";
                 }
             }
             catch (Exception ex)
@@ -114,6 +122,24 @@ namespace pokedex_ASP
                     negocio.eliminar(int.Parse(txtID.Text));
                     Response.Redirect("ListaPokemons.aspx", false);
                 }
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex);
+            }
+        }
+
+        protected void btnInactivar_Click(object sender, EventArgs e)
+
+        {
+            try
+            {
+                PokemonNegocio negocio = new PokemonNegocio();
+                Pokemon seleccionado = (Pokemon)Session["pokeSeleccionado"];
+
+                negocio.eliminarLogico(seleccionado.Id, !seleccionado.Activo);
+                Response.Redirect("ListaPokemons.aspx");
             }
             catch (Exception ex)
             {

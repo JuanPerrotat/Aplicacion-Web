@@ -21,7 +21,6 @@ namespace pokedex_ASP
                 Session.Add("listaPokemons", negocio.listarConSP());
                 dgvPokemons.DataSource = Session["listaPokemons"];
                 dgvPokemons.DataBind();
-
             }
             
         }
@@ -86,6 +85,20 @@ namespace pokedex_ASP
                 Session.Add("error", ex);
                 throw;
             }
+        }
+
+        protected void btnReinicioFiltro_Click(object sender, EventArgs e)
+        {
+            chkFiltroAvanzado.Checked = false;
+            txtFiltro.Enabled = true;
+            txtFiltro.Text = string.Empty;
+            ddlCampo.SelectedIndex = 0;
+            ddlCriterio.Items.Clear();
+            txtFiltroAvanzado.Text = string.Empty;
+            ddlEstado.SelectedIndex = 0;
+            dgvPokemons.DataSource = Session["listaPokemons"];
+            dgvPokemons.DataBind();
+            dgvPokemons.PageIndex = 0;
         }
     }
 }

@@ -14,16 +14,20 @@
                 OnTextChanged="txtFiltro_TextChanged" runat="server" />
         </div>
         <div class="col-auto d-flex align-items-center">
-                <asp:CheckBox ID="chkFiltroAvanzado"
-                    AutoPostBack="true" OnCheckedChanged="chkFiltroAvanzado_CheckedChanged"
-                    runat="server" />
-                <asp:Label runat="server" Text="Filtro avanzado"
-                    AssociatedControlID="chkFiltroAvanzado" CssClass="ms-2"/>
+            <asp:CheckBox ID="chkFiltroAvanzado"
+                AutoPostBack="true" OnCheckedChanged="chkFiltroAvanzado_CheckedChanged"
+                runat="server" />
+            <asp:Label runat="server" Text="Filtro avanzado"
+                AssociatedControlID="chkFiltroAvanzado" CssClass="ms-2" />
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <asp:Button Text="Reiniciar filtro" CssClass="btn btn-primary" AutoPostBack="true" 
+                OnClick="btnReinicioFiltro_Click" ID="btnReinicioFiltro" runat="server" />
         </div>
     </div>
 
     <%if (chkFiltroAvanzado.Checked)
-        {%>
+    {%>
     <div class="row">
         <div class="col-3">
             <div class="mb-3">

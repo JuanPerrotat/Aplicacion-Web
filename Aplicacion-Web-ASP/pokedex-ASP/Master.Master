@@ -29,6 +29,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="FormularioPokemon.aspx">Formulario ABM</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="EjemplosLogin/LoginEjemplo.aspx">Login</a>
+                        </li>
                     </ul>
                 </div>
             </div>

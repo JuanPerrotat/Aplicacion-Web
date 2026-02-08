@@ -14,5 +14,10 @@ namespace pokedex_ASP
             if (Session["error"] != null)
                 lblError.Text = Session["error"].ToString();
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EjemplosLogin/LoginEjemplo.aspx", false);
+        }
     }
 }

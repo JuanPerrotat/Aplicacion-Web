@@ -75,6 +75,8 @@
     <Content Include="Ejemplos%28DDL y cargar imagen%29\UpdatePanel.aspx" />
     <Content Include="EjemplosLogin\LoginEjemplo.aspx" />
     <Content Include="EjemplosLogin\MenuLogin1Ejemplo.aspx" />
+    <Content Include="EjemplosLogin\Pagina2LoginAdmin.aspx" />
+    <Content Include="EjemplosLogin\Pagina2LoginUser.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="FormularioPokemon.aspx" />
     <Content Include="Ejemplos%28DDL y cargar imagen%29\imagenConUrl.aspx" />
@@ -137,6 +139,20 @@
     </Compile>
     <Compile Include="EjemplosLogin\MenuLogin1Ejemplo.aspx.designer.cs">
       <DependentUpon>MenuLogin1Ejemplo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosLogin\Pagina2LoginAdmin.aspx.cs">
+      <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosLogin\Pagina2LoginAdmin.aspx.designer.cs">
+      <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosLogin\Pagina2LoginUser.aspx.cs">
+      <DependentUpon>Pagina2LoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosLogin\Pagina2LoginUser.aspx.designer.cs">
+      <DependentUpon>Pagina2LoginUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

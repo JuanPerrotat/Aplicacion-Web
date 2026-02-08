@@ -5,19 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace pokedex_ASP
+namespace pokedex_ASP.EjemplosLogin
 {
-    public partial class Master : System.Web.UI.MasterPage
+    public partial class Pagina2LoginUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
+        protected void volver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EjemplosLogin/LoginEjemplo.aspx", false);
-            Session.Remove("usuario");
+            Response.Redirect("LoginEjemplo.aspx", false);
         }
     }
 }

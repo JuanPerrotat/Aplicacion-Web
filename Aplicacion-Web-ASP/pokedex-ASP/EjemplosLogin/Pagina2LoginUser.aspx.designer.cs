@@ -7,29 +7,20 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace pokedex_ASP
+namespace pokedex_ASP.EjemplosLogin
 {
 
 
-    public partial class Error
+    public partial class Pagina2LoginUser
     {
 
         /// <summary>
-        /// Control lblError.
+        /// Control volver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
-        /// Control btnRegresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.WebControls.Button volver;
     }
 }

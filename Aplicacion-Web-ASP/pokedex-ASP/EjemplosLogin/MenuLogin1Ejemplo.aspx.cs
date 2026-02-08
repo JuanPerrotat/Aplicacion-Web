@@ -20,12 +20,12 @@ namespace pokedex_ASP.EjemplosLogin
 
         protected void btnPagina1_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Pagina2LoginUser.aspx", false);
         }
 
         protected void btnPagina2_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Pagina2LoginAdmin.aspx", false);
         }
     }
 }

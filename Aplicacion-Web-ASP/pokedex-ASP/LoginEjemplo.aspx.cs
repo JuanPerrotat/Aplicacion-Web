@@ -19,28 +19,33 @@ namespace pokedex_ASP.EjemplosLogin
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario usuario;
-            UsuarioNegocio negocio = new UsuarioNegocio();
+            Entrenador entrenador = new Entrenador();
+            EntrenadorNegocio negocio = new EntrenadorNegocio();
             try
             {
-                usuario = new Usuario(txtUser.Text, txtPassword.Text, false);
-                if (negocio.loguear(usuario))
+                entrenador.Email = txtMail.Text;
+                entrenador.Pass = txtPassword.Text;
+                if (negocio.Login(entrenador))
                 {
-                    Session.Add("usuario", usuario);
-                    Response.Redirect("MenuLogin1Ejemplo.aspx", false);
+                    Session.Add("usuarioLogueado", entrenador);
+                    Response.Redirect("MiPerfil.aspx", false);
                 }
                 else
                 {
-                    Session.Add("error", "user o pass incorrecta");
-                    Response.Redirect("../Error.aspx", false);
+                    Session.Add("error", "Mail y contraseña incorrrectos.");
+                    Response.Redirect("Error.aspx", false);
                 }
-
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex.ToString());
-                Response.Redirect("../Error.aspx");
+                Response.Redirect("Error.aspx");
             }
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx", false);
         }
     }
 }

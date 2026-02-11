@@ -67,16 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AltaTrainee.aspx" />
+    <Content Include="Contacto.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DetallePokemon.aspx" />
     <Content Include="Ejemplos%28DDL y cargar imagen%29\DDEnlazado.aspx" />
     <Content Include="Ejemplos%28DDL y cargar imagen%29\DDEstatico.aspx" />
     <Content Include="Ejemplos%28DDL y cargar imagen%29\ddlPreseleccionado.aspx" />
     <Content Include="Ejemplos%28DDL y cargar imagen%29\UpdatePanel.aspx" />
-    <Content Include="EjemplosLogin\LoginEjemplo.aspx" />
-    <Content Include="EjemplosLogin\MenuLogin1Ejemplo.aspx" />
-    <Content Include="EjemplosLogin\Pagina2LoginAdmin.aspx" />
-    <Content Include="EjemplosLogin\Pagina2LoginUser.aspx" />
+    <Content Include="Favoritos.aspx" />
+    <Content Include="LoginEjemplo.aspx" />
+    <Content Include="MenuLogin1Ejemplo.aspx" />
+    <Content Include="MiPerfil.aspx" />
+    <Content Include="Pagina2LoginAdmin.aspx" />
+    <Content Include="Pagina2LoginUser.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="FormularioPokemon.aspx" />
     <Content Include="Ejemplos%28DDL y cargar imagen%29\imagenConUrl.aspx" />
@@ -84,6 +88,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaTrainee.aspx.cs">
+      <DependentUpon>AltaTrainee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaTrainee.aspx.designer.cs">
+      <DependentUpon>AltaTrainee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,32 +144,46 @@
     <Compile Include="Ejemplos%28DDL y cargar imagen%29\UpdatePanel.aspx.designer.cs">
       <DependentUpon>UpdatePanel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EjemplosLogin\LoginEjemplo.aspx.cs">
+    <Compile Include="Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginEjemplo.aspx.cs">
       <DependentUpon>LoginEjemplo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EjemplosLogin\LoginEjemplo.aspx.designer.cs">
+    <Compile Include="LoginEjemplo.aspx.designer.cs">
       <DependentUpon>LoginEjemplo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EjemplosLogin\MenuLogin1Ejemplo.aspx.cs">
+    <Compile Include="MenuLogin1Ejemplo.aspx.cs">
       <DependentUpon>MenuLogin1Ejemplo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EjemplosLogin\MenuLogin1Ejemplo.aspx.designer.cs">
+    <Compile Include="MenuLogin1Ejemplo.aspx.designer.cs">
       <DependentUpon>MenuLogin1Ejemplo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EjemplosLogin\Pagina2LoginAdmin.aspx.cs">
+    <Compile Include="MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina2LoginAdmin.aspx.cs">
       <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EjemplosLogin\Pagina2LoginAdmin.aspx.designer.cs">
+    <Compile Include="Pagina2LoginAdmin.aspx.designer.cs">
       <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EjemplosLogin\Pagina2LoginUser.aspx.cs">
+    <Compile Include="Pagina2LoginUser.aspx.cs">
       <DependentUpon>Pagina2LoginUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EjemplosLogin\Pagina2LoginUser.aspx.designer.cs">
+    <Compile Include="Pagina2LoginUser.aspx.designer.cs">
       <DependentUpon>Pagina2LoginUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">

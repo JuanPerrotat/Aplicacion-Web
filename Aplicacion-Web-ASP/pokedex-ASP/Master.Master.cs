@@ -16,8 +16,18 @@ namespace pokedex_ASP
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EjemplosLogin/LoginEjemplo.aspx", false);
+            Response.Redirect("LoginEjemplo.aspx", false);
             Session.Remove("usuario");
+        }
+
+        protected void Unnamed_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginEjemplo.aspx", false);
+        }
+
+        protected void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaTrainee.aspx", false);
         }
     }
 }

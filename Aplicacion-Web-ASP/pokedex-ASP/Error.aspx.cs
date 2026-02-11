@@ -17,7 +17,7 @@ namespace pokedex_ASP
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EjemplosLogin/LoginEjemplo.aspx", false);
+            Response.Redirect("LoginEjemplo.aspx", false);
         }
     }
 }

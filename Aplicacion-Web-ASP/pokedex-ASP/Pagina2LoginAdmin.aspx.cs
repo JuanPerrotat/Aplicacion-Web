@@ -14,7 +14,7 @@ namespace pokedex_ASP.EjemplosLogin
             if (!(Session["usuario"] != null && ((dominio.Usuario)Session["usuario"]).UserType == dominio.TipoUsuario.Administrador))
             {
                 Session.Add("error", "No tienes permisos para ingresar a ésta pantalla. Necesitas nivel admin.");
-                Response.Redirect("../Error.aspx", false);
+                Response.Redirect("Error.aspx", false);
             }
         }
 

@@ -27,7 +27,7 @@ namespace pokedex_ASP.EjemplosLogin
                 entrenador.Pass = txtPassword.Text;
                 if (negocio.Login(entrenador))
                 {
-                    Session.Add("usuarioLogueado", entrenador);
+                    Session.Add("usuario", entrenador);
                     Response.Redirect("MiPerfil.aspx", false);
                 }
                 else

@@ -13,11 +13,8 @@ namespace pokedex_ASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Entrenador entrenador = Session["usuarioLogueado"] != null ? (Entrenador)Session["usuarioLogueado"] : null;
-            if(!(entrenador != null && entrenador.Id != 0))
+            if (!Seguridad.sesionActiva(Session["usuario"]))
                 Response.Redirect("LoginEjemplo.aspx", false);
-
-
         }
     }
 }

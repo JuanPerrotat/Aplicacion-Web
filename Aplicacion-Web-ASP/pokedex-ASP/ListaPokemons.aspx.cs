@@ -14,7 +14,12 @@ namespace pokedex_ASP
       
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!Seguridad.esAdmin(Session["usuario"]))
+            {
+                Session.Add("error", "Se requiere permisos de administrador para acceder a ésta pantalla");
+                Response.Redirect("Error.aspx", false);
+            }
+
             if (!IsPostBack)
             {
                 PokemonNegocio negocio = new PokemonNegocio();

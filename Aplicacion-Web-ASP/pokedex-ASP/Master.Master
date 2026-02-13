@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
+
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -43,16 +44,15 @@
                 <div class="ms-auto">
                     <%if (Session["usuario"] == null)
                         { %>
-                    <asp:Button CssClass="btn btn-success" ID="btnLoguearse" OnClick="Unnamed_Click1" Text="Login" runat="server" />
+                    <asp:Button CssClass="btn btn-success" ID="btnLoguearse" OnClick="btnLoguearse_Click" Text="Login" runat="server" />
                     <asp:Button CssClass="btn btn-outline-primary" ID="btnRegistrarse" OnClick="btnRegistrarse_Click" Text="Registrarse" runat="server" />
                     <% }%>
                     <% else
 
                         { %>
-                    <asp:Button runat="server" Text="Desloguearse" CssClass="btn btn-outline-danger" OnClick="Unnamed_Click" />
+                    <asp:Button runat="server" Text="Desloguearse" ID="btnDesloguearse" OnClick="btnDesloguearse_Click" CssClass="btn btn-outline-danger" />
                     <%} %>
                 </div>
-            </div>
         </nav>
         <div class="container">
             <hr />

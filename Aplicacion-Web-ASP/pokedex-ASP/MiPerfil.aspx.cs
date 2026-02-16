@@ -16,5 +16,37 @@ namespace pokedex_ASP
             if (!Seguridad.sesionActiva(Session["usuario"]))
                 Response.Redirect("LoginEjemplo.aspx", false);
         }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Escribir img
+                
+                EntrenadorNegocio negocio = new EntrenadorNegocio();
+
+                string ruta = Server.MapPath("./Imagenes/");
+                Entrenador entrenador = (Entrenador)Session["usuario"];
+                txtImagen.PostedFile.SaveAs(ruta + "perfil-" + entrenador.Id + ".jpg");
+
+                entrenador.ImagenPerfil = "perfil-" + entrenador.Id + ".jpg";
+                //entrenador.Email = txtEmail.Text;
+                //entrenador.Nombre = txtNombre.Text;
+                //entrenador.Apellido = txtApellido.Text;
+                //entrenador.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+
+                negocio.actualizar(entrenador);
+
+                //Response.Redirect("Default.aspx", false);
+
+                //Leer img
+                Image avatar = (Image)Master.FindControl("imgAvatar");
+                avatar.ImageUrl = "~/Imagenes/" + entrenador.ImagenPerfil;
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+            }
+        }
     }
 }

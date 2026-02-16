@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
 using negocio;
 using pokedex_ASP.EjemplosLogin;
 
@@ -17,9 +18,12 @@ namespace pokedex_ASP
             {
                 if (!Seguridad.sesionActiva(Session["usuario"]))
                     Response.Redirect("LoginEjemplo.aspx", false);
-
             }
 
+            if (Seguridad.sesionActiva(Session["usuario"]))
+                imgAvatar.ImageUrl = "~/Imagenes/" + ((Entrenador)Session["usuario"]).ImagenPerfil;
+            else
+                imgAvatar.ImageUrl = "https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png";
         }
         protected void btnLoguearse_Click(object sender, EventArgs e)
         {
@@ -31,8 +35,9 @@ namespace pokedex_ASP
         }
         protected void btnDesloguearse_Click(object sender, EventArgs e)
         {
+            //Session.Remove("usuario");
+            Session.Clear();
             Response.Redirect("LoginEjemplo.aspx", false);
-            Session.Remove("usuario");
         }
     }
 }

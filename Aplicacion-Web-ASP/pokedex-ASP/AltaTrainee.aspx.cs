@@ -25,7 +25,9 @@ namespace pokedex_ASP
                 EmailService emailService = new EmailService();
                 nuevo.Email = txtMail.Text;
                 nuevo.Pass = txtPassword.Text;
-                int id = entrenadorNegocio.insertarNuevoEntrenador(nuevo);
+                nuevo.Id = entrenadorNegocio.insertarNuevoEntrenador(nuevo);
+                Session.Add("usuario", nuevo);
+
                 emailService.ArmarCorreo(nuevo.Email, "Bienvenido/a, nuevo entrenador/a", "Hola, te damos la bienvenida a la web de Pokedex. " +
                     "Te has registrado exitosamente como nuevo/a entrenador/a. Por favor, no respondas éste mail, ya que se genera automáticamente.");
                 emailService.EnviarMail();

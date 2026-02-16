@@ -42,7 +42,7 @@
                     </ul>
                 </div>
                 <div class="ms-auto">
-                    <%if (Session["usuario"] == null)
+                    <%if (!negocio.Seguridad.sesionActiva(Session["usuario"]))
                         { %>
                     <asp:Button CssClass="btn btn-success" ID="btnLoguearse" OnClick="btnLoguearse_Click" Text="Login" runat="server" />
                     <asp:Button CssClass="btn btn-outline-primary" ID="btnRegistrarse" OnClick="btnRegistrarse_Click" Text="Registrarse" runat="server" />
@@ -52,6 +52,9 @@
                         { %>
                     <asp:Button runat="server" Text="Desloguearse" ID="btnDesloguearse" OnClick="btnDesloguearse_Click" CssClass="btn btn-outline-danger" />
                     <%} %>
+                        <asp:Image ID="imgAvatar" 
+                            ImageUrl="..." style="height:40px; width:40px; border-radius:50%;"
+                            runat="server" CssClass="rounded-circle ms-2" />
                 </div>
         </nav>
         <div class="container">

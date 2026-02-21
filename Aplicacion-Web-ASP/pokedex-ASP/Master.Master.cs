@@ -1,12 +1,13 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using pokedex_ASP.EjemplosLogin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using dominio;
-using negocio;
-using pokedex_ASP.EjemplosLogin;
+using static System.Net.WebRequestMethods;
 
 namespace pokedex_ASP
 {
@@ -14,16 +15,19 @@ namespace pokedex_ASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(Page is LoginEjemplo || Page is Default || Page is Contacto || Page is AltaTrainee))
+            imgAvatar.ImageUrl = "https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png";
+            if (!(Page is LoginEjemplo || Page is Default || Page is Contacto || Page is AltaTrainee || Page is Error))
             {
                 if (!Seguridad.sesionActiva(Session["usuario"]))
                     Response.Redirect("LoginEjemplo.aspx", false);
-            }
-
-            if (Seguridad.sesionActiva(Session["usuario"]))
-                imgAvatar.ImageUrl = "~/Imagenes/" + ((Entrenador)Session["usuario"]).ImagenPerfil;
-            else
-                imgAvatar.ImageUrl = "https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png";
+                else
+                {
+                    Entrenador trainee = (Entrenador)Session["usuario"];
+                    lblUser.Text = trainee.Email;
+                    if(!string.IsNullOrEmpty(trainee.ImagenPerfil))
+                        imgAvatar.ImageUrl = "~/Imagenes/" + trainee.ImagenPerfil;
+                }
+            }   
         }
         protected void btnLoguearse_Click(object sender, EventArgs e)
         {
@@ -35,7 +39,6 @@ namespace pokedex_ASP
         }
         protected void btnDesloguearse_Click(object sender, EventArgs e)
         {
-            //Session.Remove("usuario");
             Session.Clear();
             Response.Redirect("LoginEjemplo.aspx", false);
         }

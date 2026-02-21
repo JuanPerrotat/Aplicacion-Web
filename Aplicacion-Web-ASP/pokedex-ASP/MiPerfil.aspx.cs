@@ -13,27 +13,50 @@ namespace pokedex_ASP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Seguridad.sesionActiva(Session["usuario"]))
-                Response.Redirect("LoginEjemplo.aspx", false);
+            try
+            {
+                if (!IsPostBack)
+                {
+                    if (Seguridad.sesionActiva(Session["usuario"]))
+                    {
+                        Entrenador entrenador = (Entrenador)Session["usuario"];
+                        txtEmail.Text = entrenador.Email;
+                        txtEmail.Enabled = false;
+                        txtNombre.Text = entrenador.Nombre;
+                        txtApellido.Text = entrenador.Apellido;
+                        txtFechaNacimiento.Text = entrenador.FechaNacimiento.ToString("yyyy-MM-dd");
+                        if (!string.IsNullOrEmpty(entrenador.ImagenPerfil))
+                            imgNuevoPerfil.ImageUrl = "~/Imagenes/" + entrenador.ImagenPerfil;
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+            }
+
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                //Escribir img
-                
                 EntrenadorNegocio negocio = new EntrenadorNegocio();
-
-                string ruta = Server.MapPath("./Imagenes/");
                 Entrenador entrenador = (Entrenador)Session["usuario"];
-                txtImagen.PostedFile.SaveAs(ruta + "perfil-" + entrenador.Id + ".jpg");
+                //Escribir img
+                if (txtImagen.PostedFile.FileName != "")
+                {
+                    string ruta = Server.MapPath("./Imagenes/");
+                    txtImagen.PostedFile.SaveAs(ruta + "perfil-" + entrenador.Id + ".jpg");
+                    entrenador.ImagenPerfil = "perfil-" + entrenador.Id + ".jpg";
+                }
 
-                entrenador.ImagenPerfil = "perfil-" + entrenador.Id + ".jpg";
-                //entrenador.Email = txtEmail.Text;
-                //entrenador.Nombre = txtNombre.Text;
-                //entrenador.Apellido = txtApellido.Text;
-                //entrenador.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+                entrenador.Email = txtEmail.Text;
+                entrenador.Nombre = txtNombre.Text;
+                entrenador.Apellido = txtApellido.Text;
+                entrenador.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
 
                 negocio.actualizar(entrenador);
 
